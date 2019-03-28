@@ -26,7 +26,11 @@ class Artist
     self.all.detect { |singer| singer.name == name } || Artist.new(name)
   end
   
-  
+  def self.create(name)
+    artist = Artist.new(name)
+    artist.save
+    artist
+  end
   
   def print_songs
     @songs.each { |song| puts song.name }
